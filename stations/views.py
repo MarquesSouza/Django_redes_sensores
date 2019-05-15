@@ -1,4 +1,16 @@
-from django.shortcuts import render
+import ast
+from datetime import datetime
+from decimal import Decimal
+from django import forms
+from django.contrib import messages
+from django.contrib.auth import authenticate, login as login_auth, logout
+from django.contrib.auth.decorators import login_required
+from django.db import connection, transaction
+from django.db.models import Q
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_protect
+
 from rest_framework import viewsets
 from .models import Metric
 from .models import Device
@@ -26,5 +38,13 @@ class ContributorView(viewsets.ModelViewSet):
 class MeasureView(viewsets.ModelViewSet):
    queryset = Measure.objects.all()
    serializer_class = MeasureSerializer
-
-
+def index(request):
+   cursor = connection.cursor()
+   data = {}
+   campos={'date','measure','device_id_id','metric_id_id','station_id_id'}
+   for campo in campos:
+      query = "select "+campo+" from stations_measure limit 30"
+      cursor.execute(query)
+      result = cursor.fetchall()
+      data[campo]= result
+   return render(request,'index.html',data)
