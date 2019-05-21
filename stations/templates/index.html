@@ -5,7 +5,28 @@
     <title>Redes Sensores</title>
 </head>
 <body>
-
-
+<h3>{{count}}</h3>
+<div  width="50px" height="50px">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <p>
+            <div class="chartjs-wrapper">
+                <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
+            <script>
+            new Chart(document.getElementById("chartjs-0"),
+                {
+                    "type": "line", "data": {
+                        "labels": ["{{ date.0 }}", "{{ date.1 }}", "{{ date.2 }}", "{{ date.3 }}", "{{ date.4 }}", "{{ date.5 }}", "{{ date.6 }}", "{{ date.7 }}", "{{ date.8 }}", "{{ date.9 }}", "{{ date.10 }}", "{{ date.11 }}"],
+                        "datasets": [{
+                            "label": "Grafico da Cesta Básica",
+                            "data": ["{{ measure.0 }}", "{{ measure.1 }}", "{{ measure.2 }}", "{{ measure.3 }}","{{ measure.4 }}","{{ measure.5 }}", "{{ measure.6 }}", "{{ measure.7 }}", "{{ measure.8 }}", "{{ measure.9 }}", "{{ measure.10 }}", "{{ measure.11 }}"],
+                            "fill": false,
+                            "borderColor": "rgb(75, 192, 192)",
+                            "lineTension": 0.1
+                        }]
+                    }, "options": {}
+                });
+            </script>
+        </div>
+</div>
 </body>
 </html>

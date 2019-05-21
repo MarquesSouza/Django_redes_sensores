@@ -1,4 +1,3 @@
-import ast
 from datetime import datetime
 from decimal import Decimal
 from django import forms
@@ -41,10 +40,17 @@ class MeasureView(viewsets.ModelViewSet):
 def index(request):
    cursor = connection.cursor()
    data = {}
-   campos={'date','measure','device_id_id','metric_id_id','station_id_id'}
-   for campo in campos:
-      query = "select "+campo+" from stations_measure limit 30"
-      cursor.execute(query)
-      result = cursor.fetchall()
-      data[campo]= result
+   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=5 order by date desc"
+   cursor.execute(query)
+   result = cursor.fetchall()
+   da={}
+   me={}
+   count=0
+   for  measure,date in result :
+      da[count] = date
+      me[count] = measure
+      count=count+1
+   data['date']=da
+   data['measure']=me
+   data['count']= count
    return render(request,'index.html',data)

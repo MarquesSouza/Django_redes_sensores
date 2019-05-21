@@ -27,14 +27,14 @@ class Station(models.Model):
     location = models.TextField(max_length=300)
     latitude = models.DecimalField(max_digits=19,decimal_places=10)
     longitude = models.DecimalField(max_digits=19,decimal_places=10)
-    contributors_id = models.OneToOneField(Contributor,on_delete=models.CASCADE,null = True, blank=True)
+    contributors = models.OneToOneField(Contributor,on_delete=models.CASCADE,null = True, blank=True)
     def __str__(self):
         return self.name
 class Measure(models.Model):
     date = models.DateTimeField()
     measure = models.FloatField(max_length=100)
-    station_id = models.ForeignKey(Station, on_delete=models.CASCADE)
-    device_id = models.ForeignKey(Device, on_delete=models.CASCADE)
-    metric_id = models.ForeignKey(Metric, on_delete=models.CASCADE)
+    station = models.ForeignKey(Station, on_delete=models.CASCADE)
+    device = models.ForeignKey(Device, on_delete=models.CASCADE)
+    metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.date) + "/" + str(self.station_id)+"/"+str(self.device_id)
