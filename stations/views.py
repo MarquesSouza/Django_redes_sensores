@@ -9,7 +9,6 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
-
 from rest_framework import viewsets
 from .models import Metric
 from .models import Device
@@ -40,17 +39,37 @@ class MeasureView(viewsets.ModelViewSet):
 def index(request):
    cursor = connection.cursor()
    data = {}
-   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=5 order by date desc"
-   cursor.execute(query)
-   result = cursor.fetchall()
-   da={}
-   me={}
-   count=0
-   for  measure,date in result :
-      da[count] = date
-      me[count] = measure
-      count=count+1
-   data['date']=da
-   data['measure']=me
-   data['count']= count
+   where={"metric_id=1 and device_id=1 and station_id=1","metric_id=2 and device_id=1 and station_id=1","metric_id=3 and device_id=2 and station_id=1","metric_id=4 and device_id=3 and station_id=1","metric_id=5 and device_id=4 and station_id=1","metric_id=6 and device_id=5 and station_id=1"}
+   contr=0
+   for select in where:
+      query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where "+select+" order by date desc limit 30 "
+      cursor.execute(query)
+      result = cursor.fetchall()
+      da={}
+      va={}
+      count = 0
+      for  measure,date in result :
+         da[count] = date
+         va[count] = measure
+         count=count+1
+         contr=contr+1
+      if contr<=30:
+         data['tempdat'] = da
+         data['tempval'] = va
+      if contr > 30 & contr <= 60:
+         data['umidat'] = da
+         data['umival'] = va
+      if contr>60&contr<=90:
+         data['uvmdat']=da
+         data['uvmval']=va
+      if contr>90&contr<=120:
+         data['pludat']=da
+         data['pluval']=va
+      if contr>120&contr<=150:
+         data['co2dat']=da
+         data['co2val']=va
+      if contr>150&contr<=180:
+         data['toxdat']=da
+         data['toxval']=va
+   #return HttpResponse()
    return render(request,'index.html',data)
