@@ -1702,7 +1702,9 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret,
 
 .bg-primary {
    background-image: url("../img/paraiso.png");
-  background-color: #cccccc;}
+  background-color: #cccccc;
+  ;
+}
 
 .bg-info {
   background-color: #2CA8FF !important; }

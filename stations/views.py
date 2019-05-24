@@ -39,37 +39,89 @@ class MeasureView(viewsets.ModelViewSet):
 def index(request):
    cursor = connection.cursor()
    data = {}
-   where={"metric_id=1 and device_id=1 and station_id=1","metric_id=2 and device_id=1 and station_id=1","metric_id=3 and device_id=2 and station_id=1","metric_id=4 and device_id=3 and station_id=1","metric_id=5 and device_id=4 and station_id=1","metric_id=6 and device_id=5 and station_id=1"}
-   contr=0
-   for select in where:
-      query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where "+select+" order by date desc limit 30 "
-      cursor.execute(query)
-      result = cursor.fetchall()
-      da={}
-      va={}
-      count = 0
-      for  measure,date in result :
-         da[count] = date
-         va[count] = measure
-         count=count+1
-         contr=contr+1
-      if contr<=30:
-         data['tempdat'] = da
-         data['tempval'] = va
-      if contr > 30 & contr <= 60:
-         data['umidat'] = da
-         data['umival'] = va
-      if contr>60&contr<=90:
-         data['uvmdat']=da
-         data['uvmval']=va
-      if contr>90&contr<=120:
-         data['pludat']=da
-         data['pluval']=va
-      if contr>120&contr<=150:
-         data['co2dat']=da
-         data['co2val']=va
-      if contr>150&contr<=180:
-         data['toxdat']=da
-         data['toxval']=va
+   where={"","","metric_id=3 and device_id=2 and station_id=1","metric_id=4 and device_id=3 and station_id=1","metric_id=5 and device_id=4 and station_id=1","metric_id=6 and device_id=5 and station_id=1"}
+   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=1 and device_id=1 and station_id=1 order by date desc limit 30 "
+   cursor.execute(query)
+   result = cursor.fetchall()
+   tempdat={}
+   tempval={}
+   count = 0
+   for  measure,date in result :
+      tempdat[count] = date
+      tempval[count] = measure
+      count=count+1
+   data['tempdat'] = tempdat
+   data['tempval'] = tempval
+
+   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=2 and device_id=1 and station_id=1 order by date desc limit 30 "
+   cursor.execute(query)
+   result = cursor.fetchall()
+   umidat = {}
+   umival = {}
+   count = 0
+   for measure, date in result:
+      umidat[count] = date
+      umival[count] = measure
+      count = count + 1
+
+   data['umidat'] = umidat
+   data['umival'] = umival
+
+   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=3 and device_id=2 and station_id=1 order by date desc limit 30 "
+   cursor.execute(query)
+   result = cursor.fetchall()
+   uvmdat = {}
+   uvmval = {}
+   count = 0
+   for measure, date in result:
+      uvmdat[count] = date
+      uvmval[count] = measure
+      count = count + 1
+
+   data['uvmdat']=uvmdat
+   data['uvmval']=uvmval
+
+   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=4 and device_id=3 and station_id=1 order by date desc limit 30 "
+   cursor.execute(query)
+   result = cursor.fetchall()
+   pludat = {}
+   pluval = {}
+   count = 0
+   for measure, date in result:
+      pludat[count] = date
+      pluval[count] = measure
+      count = count + 1
+
+   data['pludat']=pludat
+   data['pluval']=pluval
+
+   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=5 and device_id=4 and station_id=1 order by date desc limit 30 "
+   cursor.execute(query)
+   result = cursor.fetchall()
+   co2dat = {}
+   co2val = {}
+   count = 0
+   for measure, date in result:
+      co2dat[count] = date
+      co2val[count] = measure
+      count = count + 1
+
+   data['co2dat']=co2dat
+   data['co2val']=co2val
+
+   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=6 and device_id=5 and station_id=1 order by date desc limit 30 "
+   cursor.execute(query)
+   result = cursor.fetchall()
+   toxdat = {}
+   toxval = {}
+   count = 0
+   for measure, date in result:
+      toxdat[count] = date
+      toxval[count] = measure
+      count = count + 1
+
+   data['toxdat']=toxdat
+   data['toxval']=toxval
+
    #return HttpResponse()
    return render(request,'index.html',data)
