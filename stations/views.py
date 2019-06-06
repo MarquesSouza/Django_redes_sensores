@@ -37,8 +37,23 @@ class MeasureView(viewsets.ModelViewSet):
    queryset = Measure.objects.all()
    serializer_class = MeasureSerializer
 def index(request):
-   cursor = connection.cursor()
+   data={}
+   menu = {'Pagina Inicial': '/','Mapas': 'maps','Graficos': 'graphics'}
+   data['menuactive']='/'
+   data['menu'] = menu
+   return render(request,'index.html',data)
+def maps(request):
    data = {}
+   data['menuactive'] = 'maps'
+   menu = {'Pagina Inicial': '/', 'Mapas': 'maps', 'Graficos': 'graphics'}
+   data['menu'] = menu
+   return render(request, 'maps.html', data)
+def graphics(request):
+   cursor = connection.cursor()
+   menu = {'Pagina Inicial': '/', 'Mapas': 'maps', 'Graficos': 'graphics'}
+   data={}
+   data['menuactive'] = 'graphics'
+   data['menu'] = menu
    where={"","","metric_id=3 and device_id=2 and station_id=1","metric_id=4 and device_id=3 and station_id=1","metric_id=5 and device_id=4 and station_id=1","metric_id=6 and device_id=5 and station_id=1"}
    query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=1 and device_id=1 and station_id=1 order by date desc limit 30 "
    cursor.execute(query)
@@ -122,6 +137,4 @@ def index(request):
 
    data['toxdat']=toxdat
    data['toxval']=toxval
-
-   #return HttpResponse()
-   return render(request,'index.html',data)
+   return render(request,'graphics.html',data)

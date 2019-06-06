@@ -10,5 +10,7 @@ router.register('measure', views.MeasureView)
 urlpatterns = [
     path('api/',include(router.urls)),
     path('', views.index),
+    path('graphics', views.graphics),
+    path('maps', views.maps),
 
 ]
