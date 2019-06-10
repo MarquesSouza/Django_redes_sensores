@@ -55,7 +55,7 @@ def graphics(request):
    data['menuactive'] = 'graphics'
    data['menu'] = menu
    where={"","","metric_id=3 and device_id=2 and station_id=1","metric_id=4 and device_id=3 and station_id=1","metric_id=5 and device_id=4 and station_id=1","metric_id=6 and device_id=5 and station_id=1"}
-   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=1 and device_id=1 and station_id=1 order by date desc limit 30 "
+   query = "SELECT DISTINCT measure,strftime('%d/%m-%H:%M',date) as date from stations_measure where metric_id=1 and device_id=1 and station_id=1 order by date limit 30 "
    cursor.execute(query)
    result = cursor.fetchall()
    tempdat={}
@@ -68,7 +68,7 @@ def graphics(request):
    data['tempdat'] = tempdat
    data['tempval'] = tempval
 
-   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=2 and device_id=1 and station_id=1 order by date desc limit 30 "
+   query = "SELECT DISTINCT measure,strftime('%d/%m-%H:%M',date) as date from stations_measure where metric_id=2 and device_id=1 and station_id=1 order by date limit 30 "
    cursor.execute(query)
    result = cursor.fetchall()
    umidat = {}
@@ -82,7 +82,7 @@ def graphics(request):
    data['umidat'] = umidat
    data['umival'] = umival
 
-   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=3 and device_id=2 and station_id=1 order by date desc limit 30 "
+   query = "SELECT DISTINCT measure,strftime('%d/%m-%H:%M',date) as date from stations_measure where metric_id=3 and device_id=2 and station_id=1 order by date limit 30 "
    cursor.execute(query)
    result = cursor.fetchall()
    uvmdat = {}
@@ -96,7 +96,7 @@ def graphics(request):
    data['uvmdat']=uvmdat
    data['uvmval']=uvmval
 
-   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=4 and device_id=3 and station_id=1 order by date desc limit 30 "
+   query = "SELECT DISTINCT measure,strftime('%d/%m-%H:%M',date) as date from stations_measure where metric_id=4 and device_id=3 and station_id=1 order by date limit 30 "
    cursor.execute(query)
    result = cursor.fetchall()
    pludat = {}
@@ -110,7 +110,7 @@ def graphics(request):
    data['pludat']=pludat
    data['pluval']=pluval
 
-   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=5 and device_id=4 and station_id=1 order by date desc limit 30 "
+   query = "SELECT DISTINCT measure,strftime('%d/%m-%H:%M',date) as date from stations_measure where metric_id=5 and device_id=4 and station_id=1 order by date limit 30 "
    cursor.execute(query)
    result = cursor.fetchall()
    co2dat = {}
@@ -124,7 +124,7 @@ def graphics(request):
    data['co2dat']=co2dat
    data['co2val']=co2val
 
-   query = "SELECT measure,strftime('%Y %m %d %H %M %S',date) as date from stations_measure where metric_id=6 and device_id=5 and station_id=1 order by date desc limit 30 "
+   query = "SELECT DISTINCT measure,strftime('%d/%m-%H:%M',date) as date from stations_measure where metric_id=6 and device_id=5 and station_id=1 order by date limit 30 "
    cursor.execute(query)
    result = cursor.fetchall()
    toxdat = {}

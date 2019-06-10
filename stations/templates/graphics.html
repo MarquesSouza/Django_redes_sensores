@@ -8,17 +8,6 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-title">Grafico de  Temperatura  </h5>
-                  <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -29,15 +18,15 @@
                         new Chart(document.getElementById("chartjs-0"),
                             {
                                 "type": "line", "data": {
-                                    "labels": ["{{ tempdat.1 }}", "{{ tempdat.2 }}", "{{ tempdat.3 }}", "{{ tempdat.4 }}"],
+                                    "labels": ["{{ tempdat.1 }}", "{{ tempdat.2 }}", "{{ tempdat.3 }}", "{{ tempdat.4 }}", "{{ tempdat.5 }}", "{{ tempdat.6 }}", "{{ tempdat.7 }}", "{{ tempdat.8 }}", "{{ tempdat.9 }}", "{{ tempdat.10 }}"],
                                     "datasets": [{
                                         "label": "Grafico do Sensor DHT22 Temperatura estação IFTO",
-                                        "data": ["{{ tempval.1 }}","{{ tempval.2 }}","{{ tempval.3 }}","{{ tempval.4 }}"],
+                                        "data": ["{{ tempval.1 }}","{{ tempval.2 }}","{{ tempval.3 }}","{{ tempval.4 }}","{{ tempval.5 }}","{{ tempval.6 }}","{{ tempval.7 }}","{{ tempval.8 }}","{{ tempval.9 }}","{{ tempval.10 }}"],
                                         "fill": false,
-                                        "borderColor": "rgb(75, 192, 192)",
+                                        "borderColor": "rgb(10, 155, 15)",
                                         "lineTension": 0.1
                                     }]
-                                }, "options": {}
+                                }, "options": { }
                             });
                         </script>
                 </div>
@@ -53,17 +42,6 @@
             <div class="card card-chart">
               <div class="card-header">
                <h5 class="card-title">Grafico de Umidade Relativa</h5>
-                  <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
                 <div class="card-body">
                     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
@@ -74,12 +52,12 @@
                     new Chart(document.getElementById("chartjs-1"),
                         {
                             "type": "line", "data": {
-                                "labels": ["{{ umidat.1 }}", "{{ umidat.2 }}", "{{ umidat.3 }}", "{{ umidat.4 }}"],
+                                "labels": ["{{ umidat.1 }}", "{{ umidat.2 }}", "{{ umidat.3 }}", "{{ umidat.4 }}", "{{ umidat.5 }}", "{{ umidat.6 }}", "{{ umidat.7 }}", "{{ umidat.8 }}", "{{ umidat.9 }}", "{{ umidat.10 }}"],
                                 "datasets": [{
                                     "label": "Grafico do Sensor DHT22 Umidade estação IFTO",
-                                    "data": ["{{ umival.1 }}","{{ umival.2 }}","{{ umival.3 }}","{{ umival.4 }}"],
+                                    "data": ["{{ umival.1 }}","{{ umival.2 }}","{{ umival.3 }}","{{ umival.4 }}","{{ umival.5 }}","{{ umival.6 }}","{{ umival.7 }}","{{ umival.8 }}","{{ umival.9 }}","{{ umival.10 }}"],
                                     "fill": false,
-                                    "borderColor": "rgb(75, 192, 192)",
+                                    "borderColor": "rgb(10, 155, 15)",
                                     "lineTension": 0.1
                                 }]
                             }, "options": {}
@@ -99,17 +77,6 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-title">Grafico de  Raios Ultra Violetas </h5>
-                  <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -120,12 +87,12 @@
                         new Chart(document.getElementById("chartjs-3"),
                             {
                                 "type": "line", "data": {
-                                    "labels": ["{{ uvmdat.1 }}", "{{ uvmdat.2 }}", "{{ uvmdat.3 }}", "{{ uvmdat.4 }}"],
+                                    "labels": ["{{ uvmdat.1 }}", "{{ uvmdat.2 }}", "{{ uvmdat.3 }}", "{{ uvmdat.4 }}", "{{ uvmdat.5 }}", "{{ uvmdat.6 }}", "{{ uvmdat.7 }}", "{{ uvmdat.8 }}", "{{ uvmdat.9 }}", "{{ uvmdat.10 }}"],
                                     "datasets": [{
-                                        "label": "Grafico do Sensor DHT22 Temperatura estação IFTO",
-                                        "data": ["{{ uvmval.1 }}","{{ uvmval.2 }}","{{ uvmval.3 }}","{{ uvmval.4 }}"],
+                                        "label": "Grafico do Sensor UVM-30A estação IFTO",
+                                        "data": ["{{ uvmval.1 }}","{{ uvmval.2 }}","{{ uvmval.3 }}","{{ uvmval.4 }}","{{ uvmval.5 }}","{{ uvmval.6 }}","{{ uvmval.7 }}","{{ uvmval.8 }}","{{ uvmval.9 }}","{{ uvmval.10 }}"],
                                         "fill": false,
-                                        "borderColor": "rgb(75, 192, 192)",
+                                        "borderColor": "rgb(10, 155, 15)",
                                         "lineTension": 0.1
                                     }]
                                 }, "options": {}
@@ -144,17 +111,6 @@
             <div class="card card-chart">
               <div class="card-header">
                <h5 class="card-title">Grafico de Pluviosidade</h5>
-                  <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
                 <div class="card-body">
                 <div class="chart-area" >
                     <canvas id="chartjs-4" class="card"></canvas>
@@ -162,12 +118,12 @@
                     new Chart(document.getElementById("chartjs-4"),
                         {
                             "type": "line", "data": {
-                                "labels": ["{{ pludat.1 }}", "{{ pludat.2 }}", "{{ pludat.3 }}", "{{ pludat.4 }}"],
+                                "labels": ["{{ pludat.1 }}", "{{ pludat.2 }}", "{{ pludat.3 }}", "{{ pludat.4 }}", "{{ pludat.5 }}", "{{ pludat.6 }}", "{{ pludat.7 }}", "{{ pludat.8 }}", "{{ pludat.9 }}", "{{ pludat.10 }}"],
                                 "datasets": [{
-                                    "label": "Grafico do Sensor DHT22 Umidade estação IFTO",
-                                    "data": ["{{ pluval.1 }}","{{ pluval.2 }}","{{ pluval.3 }}","{{ pluval.4 }}"],
+                                    "label": "Grafico do Sensor 9SS18 estação IFTO",
+                                    "data": ["{{ pluval.1 }}","{{ pluval.2 }}","{{ pluval.3 }}","{{ pluval.4 }}","{{ pluval.5 }}","{{ pluval.6 }}","{{ pluval.7 }}","{{ pluval.8 }}","{{ pluval.9 }}","{{ pluval.10 }}"],
                                     "fill": false,
-                                    "borderColor": "rgb(75, 192, 192)",
+                                    "borderColor": "rgb(10, 155, 15)",
                                     "lineTension": 0.1
                                 }]
                             }, "options": {}
@@ -187,17 +143,6 @@
             <div class="card card-chart">
               <div class="card-header">
                 <h5 class="card-title">Grafico de  Gás Carbonico </h5>
-                  <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
               </div>
               <div class="card-body">
                 <div class="chart-area">
@@ -208,12 +153,12 @@
                         new Chart(document.getElementById("chartjs-5"),
                             {
                                 "type": "line", "data": {
-                                    "labels": ["{{ co2dat.1 }}", "{{ co2dat.2 }}", "{{ co2dat.3 }}", "{{ co2dat.4 }}"],
+                                    "labels": ["{{ co2dat.1 }}", "{{ co2dat.2 }}", "{{ co2dat.3 }}", "{{ co2dat.4 }}", "{{ co2dat.5 }}", "{{ co2dat.6 }}", "{{ co2dat.7 }}", "{{ co2dat.8 }}", "{{ co2dat.9 }}", "{{ co2dat.10 }}"],
                                     "datasets": [{
-                                        "label": "Grafico do Sensor DHT22 Temperatura estação IFTO",
-                                        "data": ["{{ co2val.1 }}","{{ co2val.2 }}","{{ co2val.3 }}","{{ co2val.4 }}"],
+                                        "label": "Grafico do Sensor MQ7 estação IFTO",
+                                        "data": ["{{ co2val.1 }}","{{ co2val.2 }}","{{ co2val.3 }}","{{ co2val.4 }}","{{ co2val.5 }}","{{ co2val.7 }}","{{ co2val.8 }}","{{ co2val.9 }}","{{ co2val.10 }}"],
                                         "fill": false,
-                                        "borderColor": "rgb(75, 192, 192)",
+                                        "borderColor": "rgb(10, 155, 15)",
                                         "lineTension": 0.1
                                     }]
                                 }, "options": {}
@@ -232,17 +177,6 @@
             <div class="card card-chart">
               <div class="card-header">
                <h5 class="card-title">Grafico de Gases Toxicos</h5>
-                  <div class="dropdown">
-                  <button type="button" class="btn btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
-                    <i class="now-ui-icons loader_gear"></i>
-                  </button>
-                  <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item text-danger" href="#">Remove Data</a>
-                  </div>
-                </div>
                 <div class="card-body">
                 <div class="chart-area" >
                     <canvas id="chartjs-6" class="card" ></canvas>
@@ -250,12 +184,12 @@
                     new Chart(document.getElementById("chartjs-6"),
                         {
                             "type": "line", "data": {
-                                "labels": ["{{ toxdat.1 }}", "{{ toxdat.2 }}", "{{ toxdat.3 }}", "{{ toxdat.4 }}"],
+                                "labels": ["{{ toxdat.1 }}", "{{ toxdat.2 }}", "{{ toxdat.3 }}", "{{ toxdat.4 }}", "{{ toxdat.5 }}", "{{ toxdat.6 }}", "{{ toxdat.7 }}", "{{ toxdat.8 }}", "{{ toxdat.9 }}", "{{ toxdat.10 }}"],
                                 "datasets": [{
-                                    "label": "Grafico do Sensor DHT22 Umidade estação IFTO",
-                                    "data": ["{{ toxval.1 }}","{{ toxval.2 }}","{{ toxval.3 }}","{{ toxval.4 }}"],
+                                    "label": "Grafico do Sensor MQ135 estação IFTO",
+                                    "data": ["{{ toxval.1 }}","{{ toxval.2 }}","{{ toxval.3 }}","{{ toxval.4 }}","{{ toxval.5 }}","{{ toxval.6 }}","{{ toxval.7 }}","{{ toxval.8 }}","{{ toxval.9 }}","{{ toxval.10 }}"],
                                     "fill": false,
-                                    "borderColor": "rgb(75, 192, 192)",
+                                    "borderColor": "rgb(10, 155, 15)",
                                     "lineTension": 0.1
                                 }]
                             }, "options": {}
