@@ -37,4 +37,4 @@ class Measure(models.Model):
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
     metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
     def __str__(self):
-        return str(self.date) + "/" + str(self.station_id)+"/"+str(self.device_id)
+        return str(self.date) + "/" + str(self.station)+"/"+str(self.device)

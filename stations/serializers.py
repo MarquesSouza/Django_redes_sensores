@@ -24,4 +24,4 @@ class StationSerializer(serializers.ModelSerializer):
 class MeasureSerializer(serializers.ModelSerializer):
     class Meta:
         model= Measure
-        fields = ('date','station_id','metric_id','device_id','measure')
+        fields = ('date','station','metric','device','measure')
