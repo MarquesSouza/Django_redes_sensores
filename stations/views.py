@@ -90,7 +90,35 @@ def graphics(request):
    count = 0
    for measure, date in result:
       uvmdat[count] = date
-      uvmval[count] = measure
+      tensao = (measure * (5.0 / 1023.0)) * 1000
+      if (tensao > 0) & (tensao < 50) :
+         valor=0
+      if (tensao > 50) & (tensao < 227) :
+         valor = 0
+      if (tensao > 227) & (tensao < 318) :
+         valor = 1
+      if (tensao > 318) & (tensao < 408):
+         valor = 2
+      if (tensao > 408) & (tensao < 503):
+         valor = 3
+      if (tensao > 503) & (tensao < 606):
+         valor = 4
+      if (tensao > 606) & (tensao < 696):
+         valor = 5
+      if (tensao > 696) & (tensao < 795):
+         valor = 6
+      if (tensao > 795) & (tensao < 881):
+         valor = 7
+      if (tensao > 881) & (tensao < 976):
+         valor = 8
+      if (tensao > 976) & (tensao < 1079):
+         valor = 9
+      if (tensao > 1079) & (tensao < 1170):
+         valor = 10
+      if tensao > 1170:
+         valor = 11
+
+      uvmval[count] = valor
       count = count + 1
 
    data['uvmdat']=uvmdat
